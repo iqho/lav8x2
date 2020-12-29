@@ -1,3 +1,3 @@
-<div>
+<x-master-layout>
    <h1>Contact Page</h1>
-</div>
+</x-master-layout>

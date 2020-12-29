@@ -1,3 +1,4 @@
+<x-app-layout>
 <main id="main">
     <div class="container">
 
@@ -1037,3 +1038,4 @@
     </div>
 
 </main>
+</x-app-layout>
