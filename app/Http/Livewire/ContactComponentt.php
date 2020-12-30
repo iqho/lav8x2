@@ -8,6 +8,6 @@ class ContactComponentt extends Component
 {
     public function render()
     {
-        return view('livewire.contact-componentt')->layout('layouts.master');
+        return view('livewire.contact-component')->layout('layouts.master');
     }
 }
