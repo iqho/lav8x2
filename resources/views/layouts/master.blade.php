@@ -158,23 +158,23 @@
 					<div class="primary-nav-section">
 						<div class="container">
 							<ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
-								<li class="menu-item home-icon">
-									<a href="index.html" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
+								<li class="menu-item home-icon" style="background-color:@if(Route::is('home')) #ff2832 @else #444 @endif">
+									<a href="{{ route('home') }}" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
-								<li class="menu-item">
+								{{-- <li class="menu-item">
 									<a href="about-us.html" class="link-term mercado-item-title">About Us</a>
+								</li> --}}
+								<li class="menu-item" style="background-color:@if(Route::is('shop')) #ff2832 @endif">
+									<a href="{{ route('shop') }}" class="link-term mercado-item-title">Shop</a>
 								</li>
-								<li class="menu-item">
-									<a href="shop.html" class="link-term mercado-item-title">Shop</a>
+								<li class="menu-item" style="background-color:@if(Route::is('cart')) #ff2832 @endif">
+									<a href="{{ route('cart') }}" class="link-term mercado-item-title">Cart</a>
 								</li>
-								<li class="menu-item">
-									<a href="cart.html" class="link-term mercado-item-title">Cart</a>
+								<li class="menu-item" style="background-color:@if(Route::is('checkout')) #ff2832 @endif">
+									<a href="{{ route('checkout') }}" class="link-term mercado-item-title">Checkout</a>
 								</li>
-								<li class="menu-item">
-									<a href="checkout.html" class="link-term mercado-item-title">Checkout</a>
-								</li>
-								<li class="menu-item">
-									<a href="contact-us.html" class="link-term mercado-item-title">Contact Us</a>
+								<li class="menu-item" style="background-color:@if(Route::is('contact')) #ff2832 @endif">
+									<a href="{{ route('contact') }}" class="link-term mercado-item-title">Contact Us</a>
 								</li>
 							</ul>
 						</div>
@@ -184,8 +184,9 @@
 		</div>
 	</header>
 
-    {{ $slot }}
+ {{ $slot }}
 
+ 
 	<footer id="footer">
 		<div class="wrap-footer-content footer-style-1">
 
