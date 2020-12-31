@@ -71,13 +71,20 @@
 									<a title="Dollar (USD)" href="#">My Account ( {{ Auth::user()->name }})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="submenu curency" >
 										<li class="menu-item" >
-											<a title="Pound (GBP)" href="#">Dashboard</a>
+                                            @if(Auth::user()->utype === 'admin')
+                                            <a href="{{ route('admin.dashboard') }}">Dashboard</a>
+                                            @else
+                                            <a href="{{ route('user.dashboard') }}">Dashboard</a>
+                                            @endif
 										</li>
 										<li class="menu-item" >
 											<a title="Euro (EUR)" href="#">Profile</a>
-										</li>
-										<li class="menu-item" >
-											<a title="Dollar (USD)" href="#">Logout</a>
+                                        </li>
+                                        <li class="menu-item" >
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">{{ __('Logout') }}</a>
+                                        </form>
 										</li>
 									</ul>
                                 </li>
