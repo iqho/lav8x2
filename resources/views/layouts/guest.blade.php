@@ -220,8 +220,8 @@
 								<li class="menu-item" style="background-color:@if(Route::is('shop')) #ff2832 @endif">
 									<a href="{{ route('shop') }}" class="link-term mercado-item-title">Shop</a>
 								</li>
-								<li class="menu-item" style="background-color:@if(Route::is('cart')) #ff2832 @endif">
-									<a href="{{ route('cart') }}" class="link-term mercado-item-title">Cart</a>
+								<li class="menu-item" style="background-color:@if(Route::is('product.cart')) #ff2832 @endif">
+									<a href="{{ route('product.cart') }}" class="link-term mercado-item-title">Cart</a>
 								</li>
 								<li class="menu-item" style="background-color:@if(Route::is('checkout')) #ff2832 @endif">
 									<a href="{{ route('checkout') }}" class="link-term mercado-item-title">Checkout</a>
