@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeComponent::class)->name('home');
 Route::get('/shop', ShopComponent::class)->name('shop');
-Route::get('/cart', CartComponent::class)->name('cart');
+Route::get('/cart', CartComponent::class)->name('product.cart');
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 Route::get('/contact', ContactComponentt::class)->name('contact');
 Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
@@ -38,13 +38,11 @@ Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 // })->name('dashboard');
 
 // User Group
-Route::middleware(['auth:sanctum', 'verified'])->group(function(){
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
-
 });
 
 // Admin Group
-Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function(){
+Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function () {
     Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
-
 });
