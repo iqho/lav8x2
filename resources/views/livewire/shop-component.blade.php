@@ -25,18 +25,16 @@
                     <div class="wrap-right">
 
                         <div class="sort-item orderby ">
-                            <select name="orderby" class="use-chosen" >
-                                <option value="menu_order" selected="selected">Default sorting</option>
-                                <option value="popularity">Sort by popularity</option>
-                                <option value="rating">Sort by average rating</option>
-                                <option value="date">Sort by newness</option>
-                                <option value="price">Sort by price: low to high</option>
-                                <option value="price-desc">Sort by price: high to low</option>
+                            <select name="orderby" class="use-chosen" wire:model='sorting'>
+                                <option value="default" selected="selected">Default Sorting</option>
+                                <option value="date">Sort by Newness</option>
+                                <option value="price">Sort by price: Low to High</option>
+                                <option value="price-desc">Sort by price: High to Low</option>
                             </select>
                         </div>
 
                         <div class="sort-item product-per-page">
-                            <select name="post-per-page" class="use-chosen" >
+                            <select name="post-per-page" class="use-chosen" wire:model='pagesize'>
                                 <option value="12" selected="selected">12 per page</option>
                                 <option value="16">16 per page</option>
                                 <option value="18">18 per page</option>
@@ -54,7 +52,8 @@
 
                     </div>
 
-                </div><!--end wrap shop control-->
+                </div>
+                <!--end wrap shop control-->
 
                 <div class="row">
 
@@ -64,14 +63,20 @@
                         <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
                             <div class="product product-style-3 equal-elem ">
                                 <div class="product-thumnail">
-                                    <a href="{{ route('product.details',['slug'=>$product->slug]) }}" title="{{ $product->name }}">
-                                        <figure><img src="{{ asset('assets/images/products') }}/{{ $product->image }}" alt="{{ $product->name }}"></figure>
+                                    <a href="{{ route('product.details',['slug'=>$product->slug]) }}"
+                                        title="{{ $product->name }}">
+                                        <figure><img src="{{ asset('assets/images/products') }}/{{ $product->image }}"
+                                                alt="{{ $product->name }}"></figure>
                                     </a>
                                 </div>
                                 <div class="product-info">
-                                    <a href="{{ route('product.details',['slug'=>$product->slug]) }}" class="product-name"><span>{{ $product->name }}</span></a>
-                                    <div class="wrap-price"><span class="product-price">${{ $product->regular_price }}</span></div>
-                                    <a href="#" class="btn add-to-cart" wire:click.prevent="store({{ $product->id }},'{{ $product->name }}','{{ $product->regular_price }}')">Add To Cart</a>
+                                    <a href="{{ route('product.details',['slug'=>$product->slug]) }}"
+                                        class="product-name"><span>{{ $product->name }}</span></a>
+                                    <div class="wrap-price"><span
+                                            class="product-price">${{ $product->regular_price }}</span></div>
+                                    <a href="#" class="btn add-to-cart"
+                                        wire:click.prevent="store({{ $product->id }},'{{ $product->name }}','{{ $product->regular_price }}')">Add
+                                        To Cart</a>
                                 </div>
                             </div>
                         </li>
@@ -91,7 +96,8 @@
                     </ul>
                     <p class="result-count">Showing 1-8 of 12 result</p> --}}
                 </div>
-            </div><!--end main products area-->
+            </div>
+            <!--end main products area-->
 
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
                 <div class="widget mercado-widget categories-widget">
@@ -149,10 +155,16 @@
                             <li class="list-item"><a class="filter-link " href="#">Sound & Speaker</a></li>
                             <li class="list-item"><a class="filter-link " href="#">Shop Smartphone & Tablets</a></li>
                             <li class="list-item default-hiden"><a class="filter-link " href="#">Printer & Ink</a></li>
-                            <li class="list-item default-hiden"><a class="filter-link " href="#">CPUs & Prosecsors</a></li>
-                            <li class="list-item default-hiden"><a class="filter-link " href="#">Sound & Speaker</a></li>
-                            <li class="list-item default-hiden"><a class="filter-link " href="#">Shop Smartphone & Tablets</a></li>
-                            <li class="list-item"><a data-label='Show less<i class="fa fa-angle-up" aria-hidden="true"></i>' class="btn-control control-show-more" href="#">Show more<i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
+                            <li class="list-item default-hiden"><a class="filter-link " href="#">CPUs & Prosecsors</a>
+                            </li>
+                            <li class="list-item default-hiden"><a class="filter-link " href="#">Sound & Speaker</a>
+                            </li>
+                            <li class="list-item default-hiden"><a class="filter-link " href="#">Shop Smartphone &
+                                    Tablets</a></li>
+                            <li class="list-item"><a
+                                    data-label='Show less<i class="fa fa-angle-up" aria-hidden="true"></i>'
+                                    class="btn-control control-show-more" href="#">Show more<i class="fa fa-angle-down"
+                                        aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div><!-- brand widget-->
@@ -193,7 +205,8 @@
                             <li class="list-item"><a class="filter-link " href="#">xl</a></li>
                         </ul>
                         <div class="widget-banner">
-                            <figure><img src="assets/images/size-banner-widget.jpg" width="270" height="331" alt=""></figure>
+                            <figure><img src="assets/images/size-banner-widget.jpg" width="270" height="331" alt="">
+                            </figure>
                         </div>
                     </div>
                 </div><!-- Size -->
@@ -205,12 +218,14 @@
                             <li class="product-item">
                                 <div class="product product-widget-style">
                                     <div class="thumbnnail">
-                                        <a href="detail.html" title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
+                                        <a href="detail.html"
+                                            title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
                                             <figure><img src="assets/images/products/digital_01.jpg" alt=""></figure>
                                         </a>
                                     </div>
                                     <div class="product-info">
-                                        <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker...</span></a>
+                                        <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional
+                                                Speaker...</span></a>
                                         <div class="wrap-price"><span class="product-price">$168.00</span></div>
                                     </div>
                                 </div>
@@ -219,12 +234,14 @@
                             <li class="product-item">
                                 <div class="product product-widget-style">
                                     <div class="thumbnnail">
-                                        <a href="detail.html" title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
+                                        <a href="detail.html"
+                                            title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
                                             <figure><img src="assets/images/products/digital_17.jpg" alt=""></figure>
                                         </a>
                                     </div>
                                     <div class="product-info">
-                                        <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker...</span></a>
+                                        <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional
+                                                Speaker...</span></a>
                                         <div class="wrap-price"><span class="product-price">$168.00</span></div>
                                     </div>
                                 </div>
@@ -233,12 +250,14 @@
                             <li class="product-item">
                                 <div class="product product-widget-style">
                                     <div class="thumbnnail">
-                                        <a href="detail.html" title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
+                                        <a href="detail.html"
+                                            title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
                                             <figure><img src="assets/images/products/digital_18.jpg" alt=""></figure>
                                         </a>
                                     </div>
                                     <div class="product-info">
-                                        <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker...</span></a>
+                                        <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional
+                                                Speaker...</span></a>
                                         <div class="wrap-price"><span class="product-price">$168.00</span></div>
                                     </div>
                                 </div>
@@ -247,12 +266,14 @@
                             <li class="product-item">
                                 <div class="product product-widget-style">
                                     <div class="thumbnnail">
-                                        <a href="detail.html" title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
+                                        <a href="detail.html"
+                                            title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
                                             <figure><img src="assets/images/products/digital_20.jpg" alt=""></figure>
                                         </a>
                                     </div>
                                     <div class="product-info">
-                                        <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker...</span></a>
+                                        <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional
+                                                Speaker...</span></a>
                                         <div class="wrap-price"><span class="product-price">$168.00</span></div>
                                     </div>
                                 </div>
@@ -262,10 +283,13 @@
                     </div>
                 </div><!-- brand widget-->
 
-            </div><!--end sitebar-->
+            </div>
+            <!--end sitebar-->
 
-        </div><!--end row-->
+        </div>
+        <!--end row-->
 
-    </div><!--end container-->
+    </div>
+    <!--end container-->
 
 </main>
