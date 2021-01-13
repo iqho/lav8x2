@@ -6,12 +6,13 @@ use App\Models\Product;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Cart;
+use App\Models\Category;
 
 class ShopComponent extends Component
 {
     public $sorting;
     public $pagesize;
-    
+
     public function mount(){
         $this->sorting = "default";
         $this->pagesize = "12";
@@ -41,9 +42,8 @@ class ShopComponent extends Component
         else{
             $products = Product::paginate($this->pagesize);
         }
-        
+        $categories = Category::all();
 
-
-        return view('livewire.shop-component', ['products'=> $products])->layout('layouts.master');
+        return view('livewire.shop-component', ['products'=> $products, 'categories'=> $categories])->layout('layouts.master');
     }
 }

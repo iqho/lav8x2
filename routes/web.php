@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\CartComponent;
+use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\ContactComponentt;
 use App\Http\Livewire\DetailsComponent;
@@ -31,6 +32,7 @@ Route::get('/cart', CartComponent::class)->name('product.cart');
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 Route::get('/contact', ContactComponentt::class)->name('contact');
 Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
+Route::get('/product-category/{category_slug}', CategoryComponent::class)->name('product.category');
 
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
