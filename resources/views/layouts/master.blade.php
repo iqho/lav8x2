@@ -73,12 +73,18 @@
 									<ul class="submenu curency" >
 										<li class="menu-item" >
                                             @if(Auth::user()->utype === 'admin')
-                                            <a href="{{ route('admin.dashboard') }}">Dashboard</a>
+                                            <a title="Dashboard" href="{{ route('admin.dashboard') }}">Dashboard</a>
                                             @else
                                             <a href="{{ route('user.dashboard') }}">Dashboard</a>
                                             @endif
 										</li>
 										<li class="menu-item" >
+                                            <a title="Categories" href="{{ route('admin.categories') }}">Categories</a>
+                                        </li>
+                                        <li class="menu-item" >
+                                            <a title="All Products" href="{{ route('admin.products') }}">All Products</a>
+                                        </li>
+                                        <li class="menu-item" >
 											<a title="Euro (EUR)" href="#">Profile</a>
                                         </li>
                                         <li class="menu-item" >
