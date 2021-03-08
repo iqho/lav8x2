@@ -38,7 +38,7 @@
                                 <td>{{ $category->id }}</td>
                                 <td>{{ $category->name }}</td>
                                 <td>{{ $category->slug }}</td>
-                                <td><a href="{{ route('admin.editcategory',['category_slug'=>$category->slug]) }}"><i class="fa fa-edit fa-2x"></i></a> | <a href="#" wire:click.prevent="deleteCategory({{ $category->id }})"><i class="fa fa-trash fa-2x"></i></a></td>
+                                <td><a href="{{ route('admin.editcategory',['category_slug'=>$category->slug]) }}"><i class="fa fa-edit fa-2x"></i></a> | <a href="#" onclick="confirm('Sure Want to delete this product ?') || event.stopImmediatePropagation()" wire:click.prevent="deleteCategory({{ $category->id }})"><i class="fa fa-trash fa-2x"></i></a></td>
                             </tr>
                             @endforeach
                             </tbody>

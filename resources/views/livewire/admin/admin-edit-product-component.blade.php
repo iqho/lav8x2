@@ -13,7 +13,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="col-md-6"><h4>Add New Product</h4></div>
+                            <div class="col-md-6"><h4>Edit Product</h4></div>
                             <div class="col-md-6 text-right">
                                 <a href="{{ route('admin.products') }}" class="btn btn-success">All Products</a>
                             </div>
@@ -23,7 +23,7 @@
                         @if(Session::has('message'))
                             <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
                         @endif
-                        <form class="form-horizontal" enctype="multipart/form-data" wire:submit.prevent="addProduct">
+                        <form class="form-horizontal" enctype="multipart/form-data" wire:submit.prevent="updateProduct">
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Product Name</label>
                                 <div class="col-md-4">
@@ -54,7 +54,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Regular Price</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Regular Price" class="form-control input-md" wire:model="regular_price" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+                                    <input type="text" placeholder="Regular Price Name" class="form-control input-md" wire:model="regular_price" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
                                 </div>
                             </div>
 
@@ -98,9 +98,11 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="exampleFormControlFile1">Product Image</label>
                                 <div class="col-md-4">
-                                    <input type="file" class="form-control" wire:model="image" id="exampleFormControlFile1" required/>
-                                    @if($image)
-                                        <img src="{{ $image->temporaryUrl() }}" width="120"/>
+                                    <input type="file" class="form-control" wire:model="newimage" id="exampleFormControlFile1"/>
+                                    @if($newimage)
+                                        <img src="{{ $newimage->temporaryUrl() }}" width="120"/>
+                                    @else
+                                        <img src="{{ asset('assets/images/products') }}/{{ $image }}" width="120"/>
                                     @endif
                                 </div>
                             </div>
@@ -110,7 +112,7 @@
                                     <select class="form-control" wire:model="category_id" required>
                                         <option value="">Select Category</option>
                                         @foreach($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -119,7 +121,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label"></label>
                                 <div class="col-md-4">
-                                    <input type="submit" value="Add Product" class="btn btn-primary"/>
+                                    <input type="submit" value="Update Product" class="btn btn-primary"/>
                                 </div>
                             </div>
 
