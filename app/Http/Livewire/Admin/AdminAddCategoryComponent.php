@@ -19,6 +19,8 @@ class AdminAddCategoryComponent extends Component
         $category->slug = $this->slug;
         $category->save();
         session()->flash('message','Category has been created successfully');
+        $this->reset('name', 'slug');
+
     }
     public function render()
     {
