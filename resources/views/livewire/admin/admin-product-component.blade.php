@@ -15,7 +15,7 @@
                         <div class="row">
                             <div class="col-md-6"><h4>All Categories</h4></div>
                             <div class="col-md-6 text-right">
-                                <a href="{{ route('admin.addcategory') }}" class="btn btn-success">Add Category</a>
+                                <a href="{{ route('admin.addproduct') }}" class="btn btn-success">Add New Product</a>
                             </div>
                         </div>
                     </div>

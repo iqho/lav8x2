@@ -71,22 +71,21 @@
 								<li class="menu-item menu-item-has-children parent" >
 									<a title="Dollar (USD)" href="#">My Account ( {{ Auth::user()->name }})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="submenu curency" >
+                                        @if(Auth::user()->utype === 'admin')
 										<li class="menu-item" >
-                                            @if(Auth::user()->utype === 'admin')
                                             <a title="Dashboard" href="{{ route('admin.dashboard') }}">Dashboard</a>
-                                            @else
-                                            <a href="{{ route('user.dashboard') }}">Dashboard</a>
-                                            @endif
-										</li>
-										<li class="menu-item" >
+                                        </li>
+                                        <li class="menu-item" >
                                             <a title="Categories" href="{{ route('admin.categories') }}">Categories</a>
                                         </li>
                                         <li class="menu-item" >
                                             <a title="All Products" href="{{ route('admin.products') }}">All Products</a>
                                         </li>
+                                        @else
                                         <li class="menu-item" >
-											<a title="Euro (EUR)" href="#">Profile</a>
+                                            <a href="{{ route('user.dashboard') }}">Dashboard</a>
                                         </li>
+                                        @endif
                                         <li class="menu-item" >
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
