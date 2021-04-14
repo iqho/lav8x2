@@ -81,6 +81,9 @@
                                         <li class="menu-item" >
                                             <a title="All Products" href="{{ route('admin.products') }}">All Products</a>
                                         </li>
+                                        <li class="menu-item" >
+                                        <a title="Manage Home Slider" href="{{ route('admin.homeslider') }}">Manage Home SLider</a>
+                                        </li>
                                         @else
                                         <li class="menu-item" >
                                             <a href="{{ route('user.dashboard') }}">Dashboard</a>
